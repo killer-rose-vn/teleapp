@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title>Ví VNM</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="app.js"></script>
+</head>
+<body x-data="appManager">
+
+    <div class="container">
+        <p x-show="isLoading" style="text-align: center;">Đang tải...</p>
+        <div x-show="!isLoading" x-html="pageContent" x-effect="$nextTick(() => Alpine.initTree($root))"></div>
+    </div>
+
+    <nav class="toolbar">
+        <a href="#" @click.prevent="loadView('home')" class="toolbar-item" :class="{ 'active': currentView === 'home' }">
+            <i class="fas fa-wallet"></i>
+            <span>Ví</span>
+        </a>
+        <a href="#" @click.prevent="loadView('history')" class="toolbar-item" :class="{ 'active': currentView === 'history' }">
+            <i class="fas fa-history"></i>
+            <span>Lịch sử</span>
+        </a>
+        <a href="#" @click.prevent="loadView('settings')" class="toolbar-item" :class="{ 'active': currentView === 'settings' }">
+            <i class="fas fa-cog"></i>
+            <span>Cài đặt</span>
+        </a>
+    </nav>
+</body>
+</html>
