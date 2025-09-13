@@ -10,7 +10,7 @@
 
     <div class="container">
         <p x-show="isLoading" style="text-align: center;">Đang tải...</p>
-        <div x-show="!isLoading" x-html="pageContent" x-effect="$nextTick(() => Alpine.initTree($root))"></div>
+        <div class="page-content" :key="currentView" x-show="!isLoading" x-html="pageContent" x-effect="$nextTick(() => Alpine.initTree($root))"></div>
     </div>
 
     <nav class="toolbar">
