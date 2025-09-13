@@ -2,15 +2,18 @@
 <html lang="vi">
 <head>
     <title>Ví VNM</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="app.js"></script>
-</head>
-<body x-data="appManager">
 
-    <div class="container">
-        <p x-show="isLoading" style="text-align: center;">Đang tải...</p>
-        <div class="page-content" :key="currentView" x-show="!isLoading" x-html="pageContent" x-effect="$nextTick(() => Alpine.initTree($root))"></div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="app.js"></script>
+</head>
+<body>
+    <div class="appManager" x-data="appManager">
+
+        <div class="container">
+            <p x-show="isLoading" style="text-align: center;">Đang tải...</p>
+            <div class="page-content" :key="currentView" x-show="!isLoading" x-html="pageContent" x-effect="$nextTick(() => Alpine.initTree($root))"></div>
+        </div>
     </div>
 
     <nav class="toolbar">

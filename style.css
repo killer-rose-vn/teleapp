@@ -15,10 +15,13 @@ body {
     background-color: var(--bg-color);
     color: var(--primary-text-color);
     margin: 0;
+    height: 100vh;
+}
+.appManager {
+    margin: 0;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    height: 100vh;
     box-sizing: border-box;
 }
 
