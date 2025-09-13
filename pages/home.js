@@ -7,8 +7,8 @@ Alpine.data('wallet', () => ({
 
     // 2. init() sẽ tự động chạy khi component được tải
     init() {
-        console.log("Wallet component is initializing, fetching transactions...");
-        this.fetchTransactions();
+        //console.log("Wallet component is initializing, fetching transactions...");
+        //this.fetchTransactions();
     },
 
     // 3. Hàm để gọi API lấy dữ liệu

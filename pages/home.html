@@ -1,23 +1,28 @@
 ﻿<div x-data="wallet">
-    <div class="wallet-info">
-        <div class="wallet-info">
-            <p class="wallet-address" x-text="`Địa chỉ: ${$store.user.address}`"></p>
-            <h1 class="balance" x-text="`${$store.user.balance.toLocaleString('vi-VN')} đ`"></h1>
 
-            <div class="action-buttons">
-                <a href="buy.html" class="action-btn">
-                    <div class="icon"><i class="fa-solid fa-dollar-sign"></i></div>
-                    <span>Mua</span>
-                </a>
-                <a href="receive.html" class="action-btn">
-                    <div class="icon"><i class="fa-solid fa-plus"></i></div>
-                    <span>Nhận</span>
-                </a>
-                <a href="withdraw.html" class="action-btn">
-                    <div class="icon"><i class="fa-solid fa-arrow-up"></i></div>
-                    <span>Rút</span>
-                </a>
-            </div>
+    <div class="wallet-info">
+        <header class="app-header">
+            <button class="avatar-button" @click="$store.ui.isPanelOpen = true">
+                <img :src="$store.user.avatarUrl" alt="User Avatar">
+            </button>
+        </header>
+
+        <p class="wallet-address" x-text="`Địa chỉ: ${$store.user.address}`"></p>
+        <h1 class="balance" x-text="`${$store.user.balance.toLocaleString('vi-VN')} đ`"></h1>
+
+        <div class="action-buttons">
+            <a @click.prevent="$dispatch('navigate', 'buy')" class="action-btn">
+                <div class="icon"><i class="fa-solid fa-dollar-sign"></i></div>
+                <span>Mua</span>
+            </a>
+            <a @click.prevent="$dispatch('navigate', 'receive')" class="action-btn">
+                <div class="icon"><i class="fa-solid fa-plus"></i></div>
+                <span>Nhận</span>
+            </a>
+            <a @click.prevent="$root.navigate('withdraw')" class="action-btn">
+                <div class="icon"><i class="fa-solid fa-arrow-up"></i></div>
+                <span>Rút</span>
+            </a>
         </div>
     </div>
 

@@ -17,7 +17,7 @@ body {
     margin: 0;
     height: 100vh;
 }
-.appManager {
+.app{
     margin: 0;
     padding: 20px;
     display: flex;
@@ -49,7 +49,6 @@ body {
     border-radius: 15px;
     padding: 25px;
     text-align: center;
-    margin-bottom: 30px;
 }
 
 .currency-badge {
@@ -73,6 +72,7 @@ body {
     font-size: 48px;
     font-weight: bold;
     margin: 10px 0;
+    margin-bottom: 50px;
 }
 
 /* Action Buttons */
@@ -80,7 +80,6 @@ body {
     display: flex;
     justify-content: space-around;
     gap: 15px;
-    margin-top: 20px;
 }
 
 .action-btn {
@@ -92,6 +91,7 @@ body {
     color: var(--primary-text-color);
     font-size: 16px;
     cursor: pointer;
+    text-decoration:none;
 }
 
 .action-btn .icon {
@@ -319,4 +319,181 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* style.css */
+
+/* --- Header & Avatar --- */
+.app-header {
+    text-align:left;
+}
+
+.avatar-button {
+    background: none;
+    border: 2px solid #555;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+    .avatar-button img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+/* --- Offcanvas Panel --- */
+.offcanvas-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.offcanvas-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    max-width: 320px;
+    height: 100%;
+    background-color: var(--card-bg-color);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* --- Trạng thái Mở của Panel --- */
+body.panel-open .offcanvas-backdrop {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.panel-open .offcanvas-panel {
+    transform: translateX(0);
+}
+
+/* --- Các thành phần bên trong Panel --- */
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #444;
+}
+
+    .panel-header h3 {
+        margin: 0;
+    }
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.panel-content {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.profile-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.profile-pic-uploader {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+    .profile-pic-uploader img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 2px solid #666;
+    }
+
+    .profile-pic-uploader span {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0,0,0,0.6);
+        color: white;
+        font-size: 12px;
+        padding: 4px 0;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+    }
+
+.logout-btn {
+    margin-top: 20px;
+    background-color: var(--danger-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* style.css */
+.page-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: solid 1px #313131;
+}
+
+    .page-header h1 {
+        font-size: 20px;
+        margin: 0;
+        width: 100%;
+        padding-right: 20px;
+        text-align: center;
+    }
+
+.back-btn {
+    background: none;
+    border: none;
+    color: var(--primary-text-color);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
 }

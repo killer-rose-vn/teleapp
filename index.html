@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <script type="module" src="app.js"></script>
 </head>
-<body>
-    <div class="appManager" x-data="appManager">
+<body x-data="appManager" :class="{ 'panel-open': $store.ui.isPanelOpen }"
+    @app:goback="goBack"
+    @navigate="navigate($event.detail)"
+    >
+
+    <div class="app">
 
         <div class="container">
             <p x-show="isLoading" style="text-align: center;">Đang tải...</p>
@@ -17,18 +21,55 @@
     </div>
 
     <nav class="toolbar">
-        <a href="#" @click.prevent="loadView('home')" class="toolbar-item" :class="{ 'active': currentView === 'home' }">
+        <a href="#" @click.prevent="navigate('home')" class="toolbar-item" :class="{ 'active': currentView === 'home' }">
             <i class="fas fa-wallet"></i>
             <span>Ví</span>
         </a>
-        <a href="#" @click.prevent="loadView('history')" class="toolbar-item" :class="{ 'active': currentView === 'history' }">
+        <a href="#" @click.prevent="navigate('history')" class="toolbar-item" :class="{ 'active': currentView === 'history' }">
             <i class="fas fa-history"></i>
             <span>Lịch sử</span>
         </a>
-        <a href="#" @click.prevent="loadView('settings')" class="toolbar-item" :class="{ 'active': currentView === 'settings' }">
+        <a href="#" @click.prevent="navigate('settings')" class="toolbar-item" :class="{ 'active': currentView === 'settings' }">
             <i class="fas fa-cog"></i>
             <span>Cài đặt</span>
         </a>
     </nav>
+
+
+    <aside class="offcanvas-panel">
+        <div class="panel-header">
+            <h3>Tài khoản</h3>
+            <button class="close-btn" @click="$store.ui.isPanelOpen = false">&times;</button>
+        </div>
+        <div class="panel-content">
+            <div class="profile-section">
+                <label for="profile-pic-upload" class="profile-pic-uploader">
+                    <img :src="$store.user.avatarUrl" alt="User Avatar">
+                    <span>Đổi ảnh</span>
+                </label>
+                <input type="file" id="profile-pic-upload" style="display: none;">
+            </div>
+
+            <div class="form-group">
+                <label>Tên tài khoản</label>
+                <input type="text" class="form-control" x-model="$store.user.name">
+            </div>
+
+            <div class="form-group">
+                <label>Tài khoản Telegram</label>
+                <input type="text" class="form-control" :value="$store.user.telegramUsername" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Ghi chú (Memo)</label>
+                <textarea class="form-control" rows="3" x-model="$store.user.memo"></textarea>
+            </div>
+
+            <button class="btn logout-btn">Đăng xuất</button>
+        </div>
+    </aside>
+
+    <div class="offcanvas-backdrop" @click="$store.ui.isPanelOpen = false"></div>
+
 </body>
 </html>

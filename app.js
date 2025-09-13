@@ -13,12 +13,28 @@ window.Alpine = Alpine; // Gán vào window để dễ debug từ Console (khôn
 Alpine.store('user', {
     address: 'UQDO...CYCV',
     balance: 1250000,
-    name: 'Nguyen Van A'
+    name: 'Nguyen Van A',
+    memo: 'Ghi chú cá nhân...', // Thêm trường memo
+    avatarUrl: 'https://i.pravatar.cc/150?u=a042581f4e29026704d', // Đường dẫn ảnh avatar
+    telegramUsername: '@killerrosevn' // Thêm tên tài khoản Telegram
+});
+
+// STORE MỚI: Quản lý trạng thái giao diện
+Alpine.store('ui', {
+    isPanelOpen: false, // Biến cờ để điều khiển panel. Mặc định là đóng.
+});
+
+Alpine.store('app', {
+    copyAddress(address) {
+        navigator.clipboard.writeText(address).then(() => {
+            alert('Đã sao chép địa chỉ ví!');
+        });
+    }
 });
 
 // Bước 2: Đăng ký TẤT CẢ các component bạn cần
 Alpine.data('appManager', () => ({
-    currentView: 'home', // Trang mặc định
+    history: ['home'], // Ngăn xếp lịch sử, bắt đầu với trang 'home'
     pageContent: '',     // Nơi chứa HTML được fetch về
     isLoading: true,
 
@@ -26,7 +42,36 @@ Alpine.data('appManager', () => ({
         this.loadView('home'); // Tải trang home khi bắt đầu
     },
 
-    async loadView(view) {
+
+
+
+    // Hàm này sẽ trả về view hiện tại (trang trên cùng của ngăn xếp)
+    get currentView() {
+        return this.history[this.history.length - 1];
+    },
+    // Hàm điều hướng chính, có thể đi tới (push) hoặc quay lại (back)
+    navigate(view) {
+        if (view === this.currentView) return; // Không làm gì nếu click vào trang hiện tại
+
+        this.history.push(view); // Đẩy view mới vào ngăn xếp
+        this.loadView(view, 'forward');
+    },
+    // Hàm xử lý khi nhấn nút back
+    goBack() {
+        if (this.history.length <= 1) return; // Không thể back nếu chỉ còn 1 trang trong lịch sử
+
+        this.history.pop(); // Lấy view hiện tại ra khỏi ngăn xếp
+        this.loadView(this.currentView, 'backward');
+    },
+
+
+
+
+
+
+
+
+    async loadView(view, direction) {
         this.isLoading = true;
 
         const htmlPath = `./pages/${view}.html`;
@@ -46,7 +91,6 @@ Alpine.data('appManager', () => ({
 
             // Lấy nội dung HTML và cập nhật giao diện
             this.pageContent = await htmlResponse.text();
-            this.currentView = view;
 
         } catch (error) {
             console.error(`Lỗi khi tải trang ${view}:`, error);
@@ -69,3 +113,7 @@ Alpine.data('appManager', () => ({
 // Bước 3: Sau khi đã đăng ký xong tất cả mọi thứ,
 // ra lệnh cho Alpine bắt đầu quét trang và khởi tạo.
 Alpine.start();
+
+
+
+

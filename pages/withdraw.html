@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rút VNM</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <div class="container">
-        <div id="step1">
-            <div class="header">
+<div x-data="withdraw">
+    <div class="container centered">
+
+
+        <div x-show="currentStep == 1">
+            <div class="page-header">
+                <button class="back-btn" @click="$dispatch('app:goback')">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
                 <h1>Gửi VNM</h1>
             </div>
+
             <div class="form-group">
                 <label for="recipient-address">Địa chỉ ví nhận</label>
                 <div class="input-group">
@@ -20,48 +17,42 @@
                     <span class="input-group-text"><i class="fas fa-paste"></i></span>
                 </div>
             </div>
-             <div class="form-group">
+            <div class="form-group">
                 <label for="amount">Số lượng</label>
                 <div class="input-group">
                     <input type="number" id="amount" class="form-control" placeholder="0.0">
                     <span class="input-group-text">VNM</span>
                 </div>
             </div>
-            <button onclick="goToStep2()" class="btn">Tiếp tục</button>
+            <button @click="goToStep2()" class="btn">Tiếp tục</button>
         </div>
 
-        <div id="step2" style="display:none;">
-            <div class="header">
+        <div x-show="currentStep == 2">
+            <div class="page-header">
+                <button class="back-btn" @click="currentStep -= 1">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
                 <h1>Xác thực giao dịch</h1>
             </div>
+
             <p class="centered">Một mã OTP đã được gửi đến email của bạn. Vui lòng nhập để xác nhận.</p>
             <div class="form-group">
                 <label for="otp">Mã OTP</label>
                 <input type="text" id="otp" class="form-control" placeholder="******">
             </div>
-            <button onclick="goToStep3()" class="btn">Xác nhận</button>
+            <button @click="goToStep3()" class="btn">Xác nhận</button>
         </div>
 
-        <div id="step3" style="display:none;" class="centered">
-            <div class="header">
-                <h1>Giao dịch thành công</h1>
+        <div x-show="currentStep == 3">
+            <div class="page-header">
+                <h1>Thông tin thanh toán</h1>
             </div>
+
             <i class="fas fa-check-circle" style="font-size: 60px; color: var(--success-color); margin-bottom: 20px;"></i>
             <p>Bạn đã gửi thành công <strong>150 VNM</strong> đến địa chỉ <strong>UQDO...CYCV</strong>.</p>
             <br>
             <a href="index.html" class="btn">Về trang chủ</a>
         </div>
     </div>
-    
-    <script>
-        function goToStep2() {
-            document.getElementById('step1').style.display = 'none';
-            document.getElementById('step2').style.display = 'block';
-        }
-        function goToStep3() {
-            document.getElementById('step2').style.display = 'none';
-            document.getElementById('step3').style.display = 'block';
-        }
-    </script>
-</body>
-</html>
+
+</div>
