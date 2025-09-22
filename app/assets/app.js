@@ -6,12 +6,13 @@ window.Alpine = Alpine;
 // STORE MỚI: Quản lý trạng thái giao diện
 Alpine.store('ui', {
     isPanelOpen: false, // Biến cờ để điều khiển panel. Mặc định là đóng.
+    lng: 'vi'
 });
 
 // STORE CHUNG: Chứa các biến và hàm dùng chung trong toàn app
 Alpine.store('app', {
 
-    resetCacheVer: 8, // Tăng số này lên khi bạn deploy phiên bản mới để tránh cache cũ
+    resetCacheVer: 12, // Tăng số này lên khi bạn deploy phiên bản mới để tránh cache cũ
     isDemo: true, // Chế độ demo, tắt các tính năng nhạy cảm
     isLocalhost: (window.location.hostname === "localhost"),
     apiUrl: (window.location.hostname === "localhost" ? "http://localhost:20001" : "https://api.yourdomain.com"),
@@ -25,7 +26,6 @@ Alpine.store('app', {
             this.toast.fire('Đã sao chép địa chỉ ví!', '', 'success');
         });
     },
-
     async getClipboard(callback) {
         if (this.isLocalhost) {
             try {
@@ -113,7 +113,9 @@ if (Alpine.store('app').isDemo) {
         photo_url: 'https://i.pravatar.cc/150?u=test',
         desciption: 'Ghi chú...',
         money: 12345.67,
-        status: 'active' // 'active', 'inactive', 'banned'
+        status: 'active', // 'active', 'inactive', 'banned',
+        emailLinked: false,
+        has2fa: false,
     }); // Dùng user mặc định khi test trên trình duyệt
 }
 else {
@@ -156,7 +158,7 @@ Alpine.data('appManager', () => ({
     isLoading: true,
 
     init() {
-        this.loadView('home'); // Tải trang home khi bắt đầu
+        this.loadView('settings/profile'); // Tải trang home khi bắt đầu
     },
 
 

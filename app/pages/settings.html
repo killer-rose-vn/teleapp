@@ -9,33 +9,57 @@
 
 
     <div class="settings-menu">
-        <div class="setting-item">
-            <div><i class="fas fa-user-circle"></i> Hồ sơ</div>
-            <i class="fas fa-chevron-right"></i>
+        <div class="setting-item" @click.prevent="navigate('settings/profile')">
+            <i class="fas fa-user-circle i1"></i> 
+            <div class="t">
+                <h4>Hồ sơ</h4>
+                <p>Tài khoản người dùng</p>
+            </div>
+            <i class="fas fa-chevron-right i2"></i>
+        </div>
+        <div class="setting-item" @click.prevent="navigate('settings/security')">
+            <i class="fas fa-shield-alt i1"></i>
+            <div class="t">
+                <h4>Bảo mật</h4>
+                <p>Thiết lập 2Fa</p>
+            </div>
+            <i class="fas fa-chevron-right i2"></i>
+        </div>
+        <div class="setting-item" @click.prevent="navigate('settings/recovery')">
+            <i class="fas fa-key i1"></i>
+            <div class="t">
+                <h4>Cụm từ khôi phục ví</h4>
+                <p>12 số bí mật</p>
+            </div>
+            <i class="fas fa-chevron-right i2"></i>
+        </div>
+        <div class="setting-item" @click.prevent="navigate('settings/notifications')">
+            <i class="fas fa-bell i1"></i>
+            <div class="t">
+                <h4>Thông báo</h4>
+                <p> </p>
+            </div>
+            <i class="fas fa-chevron-right i2"></i>
+        </div>
+        <div class="setting-item" @click.prevent="navigate('settings/language')">
+            <i class="fas fa-globe i1"></i>
+            <div class="t">
+                <h4>Ngôn ngữ</h4>
+                <p>Hiện tại: <span x-text="$store.ui.lng"></span></p>
+            </div>
+            <i class="fas fa-chevron-right i2"></i>
         </div>
         <div class="setting-item">
-            <div><i class="fas fa-shield-alt"></i> Bảo mật</div>
-            <i class="fas fa-chevron-right"></i>
+            <i class="fas fa-user-circle i1"></i>
+            <div class="t">
+                <h4>Hỗ trợ</h4>
+                <p> </p>
+            </div>
+            <i class="fas fa-chevron-right i2"></i>
         </div>
-        <div class="setting-item">
-            <div><i class="fas fa-key"></i> Cụm từ khôi phục ví</div>
-            <i class="fas fa-chevron-right"></i>
-        </div>
-        <div class="setting-item">
-            <div><i class="fas fa-bell"></i> Thông báo</div>
-            <i class="fas fa-chevron-right"></i>
-        </div>
-        <div class="setting-item">
-            <div><i class="fas fa-globe"></i> Ngôn ngữ</div>
-            <i class="fas fa-chevron-right"></i>
-        </div>
-        <div class="setting-item">
-            <div><i class="fas fa-question-circle"></i> Hỗ trợ</div>
-            <i class="fas fa-chevron-right"></i>
-        </div>
-        <div class="setting-item" style="color: var(--danger-color);">
-            <div><i class="fas fa-sign-out-alt"></i> Đăng xuất</div>
+
+        <div class="setting-item" style="color: var(--danger-color); margin-top:35px;">
+            <div><i class="fas fa-sign-out-alt"></i> <span class="t">Đăng xuất</span></div>
         </div>
     </div>
 </div>
-

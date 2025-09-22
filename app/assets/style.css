@@ -196,6 +196,11 @@ body {
     margin-bottom: 8px;
     color: var(--secondary-text-color);
 }
+    .form-group.floatForm label {
+        display: inline-block;
+        margin-bottom: -8px;
+        background-color: var(--bg-color);
+    }
 
 .input-group {
     position: relative;
@@ -302,9 +307,171 @@ body {
     cursor: pointer;
 }
 .setting-item i {
-    margin-right: 15px;
     color: var(--secondary-text-color);
 }
+.setting-item .i1 {
+    font-size:2em;
+}
+.setting-item .t {
+    margin-left: 15px;
+    width: 100%;
+}
+    .setting-item .t h4 {
+        margin: 0;
+    }
+    .setting-item .t p {
+        font-size: 0.85em;
+        margin: 0;
+        color: var(--secondary-text-color);
+    }
+
+/* Thêm vào css/style.css */
+
+/* Menu Cài đặt */
+.settings-menu .list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background-color: #2a2a2e; /* Màu nền item */
+    margin-bottom: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+    .settings-menu .list-item:hover {
+        background-color: #3a3a3e;
+    }
+
+    .settings-menu .list-item .icon {
+        font-size: 20px;
+        margin-right: 12px;
+    }
+
+    .settings-menu .list-item .arrow {
+        font-size: 18px;
+        color: #8e8e93;
+    }
+
+    .settings-menu .list-item.logout {
+        color: #ff453a; /* Màu đỏ cho logout */
+    }
+
+/* Trang Hồ sơ (Profile) */
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 0;
+    border-bottom: 1px solid #3a3a3e;
+    margin-bottom: 16px;
+}
+
+    .profile-header .avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 12px;
+        object-fit: cover;
+    }
+
+    .profile-header .username {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+.profile-verification {
+    padding: 0 16px;
+    margin-bottom: 24px;
+}
+
+.verification-item {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+    .verification-item .icon {
+        font-size: 20px;
+        margin-right: 10px;
+        color: #34c759; /* Màu xanh lá cho tick */
+    }
+
+        .verification-item .icon.disabled {
+            color: #8e8e93; /* Màu xám cho chưa tick */
+        }
+
+/* Trang Ngôn ngữ */
+.language-item .icon {
+    color: #34c759;
+    font-size: 20px;
+}
+
+/* Trang 2FA & Khôi phục */
+.qr-code-container {
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 20px auto;
+}
+
+.recovery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.recovery-word {
+    background-color: #2a2a2e;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+    .checkbox-container input {
+        margin-right: 10px;
+        width: 18px;
+        height: 18px;
+    }
+
+.error-message {
+    color: #ff453a;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -464,6 +631,64 @@ body.panel-open .offcanvas-panel {
 .logout-btn {
     margin-top: 20px;
     background-color: var(--danger-color);
+}
+/* Thêm vào css/style.css nếu chưa có */
+.secondary-button {
+    background-color: #3a3a3e; /* Màu nền xám đậm */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+    .secondary-button:hover {
+        background-color: #4a4a4e;
+    }
+
+/* Cho trang chỉnh sửa avatar */
+.avatar-preview-container {
+    text-align: center;
+    margin: 20px 0;
+}
+.avatar-preview-wraper {
+    display: inline-block;
+    position:relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+    .avatar-preview-wraper label {
+        position: absolute;
+        left: 0;
+        bottom: -50px;
+        height: 50px;
+        line-height: 40px;
+        width: 100%;
+        background-color: #00000094;
+        transition: bottom 0.3s ease-in-out;
+    }
+    .avatar-preview-wraper:hover label {
+        bottom: 0;
+    }
+    .avatar-preview-wraper input[type=file] {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        opacity: 0;
+        cursor: pointer;
+        width: 100%;
+        height: 50px;
+    }
+
+.avatar-preview {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #3a3a3e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <title>Ví VNM</title>
+    <title>VNM Wallet</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="assets/style.css">
@@ -47,12 +47,10 @@
         </div>
         <div class="panel-content" style="padding: 0; background-color: var(--bg-color);">
             <div class="profile-section" style="background-color: var(--card-bg-color);">
-                <label for="profile-pic-upload" class="profile-pic-uploader">
+                <label @click.prevent="navigate('settings/profile'); $store.ui.isPanelOpen = false;" class="profile-pic-uploader">
                     <img :src="$store.user.photo_url" alt="User Avatar" style="margin-top:20px" />
-                    <span>Đổi ảnh</span>
                 </label>
-                <input type="file" id="profile-pic-upload" style="display: none;" />
-                <h3 x-text="$store.user.caption"></h3>
+                <h3 style="cursor:pointer;" x-text="$store.user.caption" @click.prevent="navigate('settings/profile'); $store.ui.isPanelOpen = false;"></h3>
                 <hr />
             </div>
 

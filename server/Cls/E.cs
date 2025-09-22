@@ -8,7 +8,7 @@ namespace server
 {
     public class E
     {
-        public enum user_status { active = 1, banned = 0 }
+        public enum user_status { active = 1, inactive = 2, banned = 0 }
 
 
     }
