@@ -1,0 +1,48 @@
+<div x-data="setting_profile">
+    <div class="page-header">
+        <button class="back-btn" @click="$dispatch('app:goback')">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <h1>Hồ sơ</h1>
+    </div>
+
+
+    <main class="main">
+        <div class="profile-header">
+            <img :src="$store.user.photo_url" alt="Avatar" class="avatar" /> 
+            <h2 class="username" x-text="$store.user.caption || 'Tên Người Dùng'"></h2>
+        </div>
+
+        <div class="profile-verification">
+            <div class="verification-item">
+                <span class="icon" :class="$store.user.tid > 0 ? '' : 'disabled'" x-text="$store.user.tid > 0 ? '✓' : '✗'"></span>
+                <span>Đã liên kết Telegram</span>
+            </div>
+            <div class="verification-item">
+                <span class="icon" :class="$store.user.emailLinked ? '' : 'disabled'" x-text="$store.user.emailLinked ? '✓' : '✗'"></span>
+                <span>Đã liên kết Email</span>
+            </div>
+            <div class="verification-item">
+                <span class="icon" :class="$store.user.has2fa ? '' : 'disabled'" x-text="$store.user.has2fa ? '✓' : '✗'"></span>
+                <span>Đã thiết lập 2FA</span>
+            </div>
+        </div>
+
+        <div class="settings-menu" style="padding: 0 16px;">
+            <div class="list-item" @click.prevent="navigate('settings/profile_avatar')">
+                <span>Thay đổi thông tin</span>
+                <span class="arrow">&gt;</span>
+            </div>
+            <div class="list-item" @click.prevent="navigate('settings/profile_email')">
+                <span>Đổi Email</span>
+                <span class="arrow">&gt;</span>
+            </div>
+            <div class="list-item" @click.prevent="navigate('settings/security')">
+                <span>Thiết lập 2FA</span>
+                <span class="arrow">&gt;</span>
+            </div>
+        </div>
+    </main>
+
+</div>
+

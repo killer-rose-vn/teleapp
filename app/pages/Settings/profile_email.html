@@ -1,0 +1,25 @@
+<div x-data="setting_profile_email">
+    <div class="page-header">
+        <button class="back-btn" @click="$dispatch('app:goback')">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <h1>Hồ sơ » Đổi email</h1>
+    </div>
+
+    <main class="main" style="padding: 16px;">
+        <div class="form-group">
+            <label for="currentEmail">Email hiện tại</label>
+            <input type="email" id="currentEmail" class="input-field" x-bind:value="user.email" readonly disabled>
+        </div>
+        <div class="form-group">
+            <label for="newEmail">Email mới</label>
+            <input type="email" id="newEmail" class="input-field" placeholder="Nhập email mới">
+        </div>
+        <div class="form-group">
+            <label for="confirmNewEmail">Xác nhận email mới</label>
+            <input type="email" id="confirmNewEmail" class="input-field" placeholder="Nhập lại email mới">
+        </div>
+        <button class="primary-button" style="width: 100%;">Gửi mã xác nhận</button>
+    </main>
+</div>
+

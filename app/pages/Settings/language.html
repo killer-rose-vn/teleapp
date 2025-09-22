@@ -1,0 +1,28 @@
+<div x-data="setting_language">
+    <div class="page-header">
+        <button class="back-btn" @click="$dispatch('app:goback')">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <h1>Ngôn ngữ </h1>
+    </div>
+
+    <main class="main settings-menu" style="padding: 16px;">
+        <div class="list-item language-item" x-on:click="selectedLang = 'vi'">
+            <span>Tiếng Việt</span>
+            <span class="icon" x-show="selectedLang === 'vi'">✓</span>
+        </div>
+        <div class="list-item language-item" x-on:click="selectedLang = 'en'">
+            <span>English</span>
+            <span class="icon" x-show="selectedLang === 'en'">✓</span>
+        </div>
+        <div class="list-item language-item" x-on:click="selectedLang = 'zh'">
+            <span>中文 (简体)</span>
+            <span class="icon" x-show="selectedLang === 'zh'">✓</span>
+        </div>
+
+        <button class="btn" style="width: 100%; margin-top: 20px;" x-on:click="saveLanguage(selectedLang)">
+            Lưu
+        </button>
+    </main>
+</div>
+

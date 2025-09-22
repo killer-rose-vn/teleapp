@@ -1,0 +1,48 @@
+<div x-data="setting_recovery">
+    <div class="page-header">
+        <button class="back-btn" @click="$dispatch('app:goback')">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <h1>Cụm từ khôi phục</h1>
+    </div>
+
+    <main class="main" style="padding: 16px;">
+
+        <div x-show="step === 1">
+            <p style="color: #ff453a; font-weight: 500;">LƯU Ý: Lưu 12 số này ở nơi an toàn. Đây là cách duy nhất để khôi phục tài khoản của bạn.</p>
+            <div class="recovery-grid">
+                <template x-for="(num, index) in recoveryNumbers" :key="index">
+                    <div class="recovery-word">
+                        <span x-text="index + 1 + '. '"></span>
+                        <span x-text="num"></span>
+                    </div>
+                </template>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="hasCopied" x-model="hasCopied">
+                <label for="hasCopied">Tôi đã sao chép 12 số vào nơi an toàn.</label>
+            </div>
+            <button class="primary-button" style="width: 100%;" x-on:click="step = 2" :disabled="!hasCopied" :style="!hasCopied && { opacity: 0.5, cursor: 'not-allowed' }">
+                Tiếp tục xác thực
+            </button>
+        </div>
+
+        <div x-show="step === 2">
+            <p>Để xác nhận bạn đã lưu, vui lòng thực hiện phép toán sau và điền kết quả:</p>
+            <div class="form-group" style="background-color: #2a2a2e; padding: 16px; border-radius: 10px;">
+                <p>1. Lấy SỐ THỨ 2 (của bạn) cộng với 10.</p>
+                <p>2. Lấy SỐ THứ 5 (của bạn) trừ đi SỐ THỨ 6 (của bạn).</p>
+                <p>3. Lấy kết quả (1) cộng với kết quả (2).</p>
+                <p>4. Chia tổng đó cho 3 và **lấy phần nguyên**.</p>
+            </div>
+            <div class="form-group" style="margin-top: 20px;">
+                <label for="recoveryResult">Nhập kết quả (phần nguyên)</label>
+                <input type="number" id="recoveryResult" class="input-field" x-model="userInput" placeholder="Nhập kết quả">
+            </div>
+            <p class="error-message" x-show="error" x-text="error"></p>
+            <button class="primary-button" style="width: 100%;" x-on:click="validateRecovery()">Xác nhận</button>
+        </div>
+
+    </main>
+</div>
+
