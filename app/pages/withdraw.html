@@ -1,0 +1,66 @@
+<div x-data="withdraw">
+    <div class="container centered">
+
+
+        <div x-show="currentStep == 1">
+            <div class="page-header">
+                <button class="back-btn" @click="$dispatch('app:goback')">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <h1>Gửi VNM</h1>
+            </div>
+
+            <div class="form-group">
+                <label for="recipient-address">Địa chỉ ví nhận</label>
+                <div class="input-group">
+                    <input type="text" id="recipient-address" class="form-control" x-model="withdraw_address" />
+                    <span class="input-group-text">
+                        <span style="margin-right:10px" @click="openCam()"><i class="fas fa-camera"></i></span>
+                        <span @click="openPaste()"><i class="fas fa-paste"></i></span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="amount">Số lượng</label>
+                <div class="input-group">
+                    <input type="number" x-model="withdraw_amount" class="form-control" placeholder="" />
+                    <span class="input-group-text">VNM</span>
+                </div>
+            </div>
+            <button @click="goToStep2()" class="btn">Tiếp tục</button>
+        </div>
+
+        <div x-show="currentStep == 2">
+            <div class="page-header">
+                <button class="back-btn" @click="currentStep -= 1">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h1>Xác thực giao dịch</h1>
+            </div>
+
+            <p class="centered">Một mã OTP đã được gửi đến email của bạn. Vui lòng nhập để xác nhận.</p>
+            <div class="form-group">
+                <label for="otp">Mã OTP</label>
+                <div class="otp-single-container" style="position:relative;">
+                    <input type="tel" class="form-control" maxlength="6" pattern="\d{6}" x-model="withdraw_otp" />
+                    <span style="position:absolute;right:15px;top:10px;cursor:pointer;" @click="openPaste2()"><i class="fas fa-paste"></i></span>
+                </div>
+            </div>
+            <button @click="goToStep3()" class="btn">Xác nhận</button>
+        </div>
+
+        <div x-show="currentStep == 3">
+            <div class="page-header">
+                <h1>Thông tin thanh toán</h1>
+            </div>
+
+            <i class="fas fa-check-circle" style="font-size: 60px; color: var(--success-color); margin-bottom: 20px; margin-top:80px;"></i>
+            <p>Bạn đã gửi thành công <strong>150 VNM</strong> đến địa chỉ <strong>UQDO...CYCV</strong>.</p>
+
+            <br>
+            <button @click="currentStep = 1" class="btn">Giao dịch mới</button>
+            <a href="index.html" class="btn">Về trang chủ</a>
+        </div>
+    </div>
+
+</div>

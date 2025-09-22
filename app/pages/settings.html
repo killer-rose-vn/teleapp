@@ -1,0 +1,41 @@
+<div x-data="setting">
+    <div class="page-header">
+        <button class="back-btn" @click="$dispatch('app:goback')">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <h1>Cấu hình</h1>
+        <div class="placeholder"></div>
+    </div>
+
+
+    <div class="settings-menu">
+        <div class="setting-item">
+            <div><i class="fas fa-user-circle"></i> Hồ sơ</div>
+            <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="setting-item">
+            <div><i class="fas fa-shield-alt"></i> Bảo mật</div>
+            <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="setting-item">
+            <div><i class="fas fa-key"></i> Cụm từ khôi phục ví</div>
+            <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="setting-item">
+            <div><i class="fas fa-bell"></i> Thông báo</div>
+            <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="setting-item">
+            <div><i class="fas fa-globe"></i> Ngôn ngữ</div>
+            <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="setting-item">
+            <div><i class="fas fa-question-circle"></i> Hỗ trợ</div>
+            <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="setting-item" style="color: var(--danger-color);">
+            <div><i class="fas fa-sign-out-alt"></i> Đăng xuất</div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,89 @@
+<div x-data="buy">
+
+    <div x-show="currentStep == 1" x-data="data1">
+        <div class="page-header">
+            <button class="back-btn" @click="$dispatch('app:goback')">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <h1>Mua VNM bằng USDT</h1>
+        </div>
+
+        <div class="form-group">
+            <label for="usdt-amount">Mạng lưới chuyển USDT</label>
+            <div class="input-group">
+                <select class="form-control" x-model="network">
+                    <option value="">Chọn..</option>
+                    <option value="ETH">ETH</option>
+                    <option value="BSC">BSC</option>
+                    <option value="TRX">TRX</option>
+                    <option value="MATIC">MATIC</option>
+                    <option value="XRP">XRP</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="usdt-amount">Số lượng USDT bạn trả</label>
+            <div class="input-group">
+                <input type="number" x-model.number="amount" class="form-control">
+                <span class="input-group-text">USDT</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="vnm-amount">Số lượng VNM bạn nhận</label>
+            <div class="input-group">
+                <div x-text="(amount * tygia).toLocaleString('en-EN')" class="form-control"></div>
+                <span class="input-group-text">VNM</span>
+            </div>
+        </div>
+        <button @click="goToStep2()" class="btn">Tiếp tục</button>
+    </div>
+
+    <div x-show="currentStep == 2" x-data="data2">
+        <div class="page-header">
+            <button class="back-btn" @click="currentStep -= 1">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <h1>Thông tin thanh toán</h1>
+        </div>
+        <p class="centered">Vui lòng chuyển đúng số tiền USDT dưới đây.</p>
+
+        <div class="info-box centered">
+            <p class="label">Số tiền cần chuyển</p>
+            <p class="value"><span x-text="amount.toLocaleString('en-EN')">100.00564</span> USDT</p>
+        </div>
+
+        <div class="info-box">
+            <p class="label">Địa chỉ ví USDT (<span style="color:red;" x-text="network"></span>)</p>
+            <p class="value"><span x-text="address">0x1234...abcd</span> <button @click="$store.app.copyAddress(address)" class="icon-button"><i class="fas fa-copy"></i></button></p>
+        </div>
+
+        <div class="centered">
+            <div class="qr-code-container">
+                <img :src="qrCodeUrl" alt="QR Code" />
+            </div>
+        </div>
+        <br>
+        <button @click="goToStep3()" class="btn">Tôi đã chuyển, hoàn thành</button>
+    </div>
+
+    <div x-show="currentStep == 3" class="centered">
+        <div class="page-header">
+            <h1>Đang chờ xác nhận</h1>
+        </div>
+        <div>
+            <i class="fas fa-hourglass-half" style="font-size: 60px; color: var(--success-color); margin-bottom: 20px; margin-top: 80px;"></i>
+            <p>Giao dịch của bạn đang được xử lý. Vui lòng chờ trong vài phút.</p>
+            <br />
+            <a href="#" @click="checkOrderStatus()" class="btn">Kiểm tra giao dịch</a>
+            <br />
+        </div>
+        <div>
+            <i class="fas fa-check-circle" style="font-size: 60px; color: var(--success-color); margin-bottom: 20px; margin-top: 80px;"></i>
+            <p>Giao dịch đã thành công ().</p>
+            <br />
+        </div>
+        <a @click="$dispatch('navigate', 'home')" class="btn" style="background-color: var(--button-bg-color);">Về trang chủ</a>
+    </div>
+</div>
+
+

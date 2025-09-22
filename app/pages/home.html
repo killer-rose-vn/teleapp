@@ -1,0 +1,53 @@
+﻿<div x-data="wallet">
+
+    <div class="wallet-info">
+        <header class="app-header">
+            <button class="avatar-button" @click="$store.ui.isPanelOpen = true">
+                <img :src="$store.user.photo_url" alt="User Avatar">
+            </button>
+        </header>
+
+        <p class="wallet-address" x-text="`Địa chỉ: ${$store.user.shortId}`"></p>
+        <h1 class="balance" x-text="`${$store.user.money.toLocaleString('en-EN')} đ`"></h1>
+
+        <div class="action-buttons">
+            <a @click.prevent="$dispatch('navigate', 'buy')" class="action-btn">
+                <div class="icon"><i class="fa-solid fa-dollar-sign"></i></div>
+                <span>Mua</span>
+            </a>
+            <a @click.prevent="$dispatch('navigate', 'receive')" class="action-btn">
+                <div class="icon"><i class="fa-solid fa-plus"></i></div>
+                <span>Nhận</span>
+            </a>
+            <a @click.prevent="$dispatch('navigate', 'withdraw')" class="action-btn">
+                <div class="icon"><i class="fa-solid fa-arrow-up"></i></div>
+                <span>Rút</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="transactions">
+        <h2>Các giao dịch gần đây</h2>
+
+        <p x-show="isLoading" style="text-align: center;">Đang tải giao dịch...</p>
+
+        <p x-show="!isLoading && errorMessage" x-text="errorMessage" style="text-align: center; color: red;"></p>
+
+        <p x-show="!isLoading && !errorMessage && transactions.length === 0" style="text-align: center; color: #888;">
+            Chưa có giao dịch nào.
+        </p>
+
+        <template x-for="tx in transactions" :key="tx.id">
+            <div class="transaction-item">
+                <div class="transaction-details">
+                    <p class="type" x-text="tx.description"></p>
+                    <p class="date" x-text="new Date(tx.date).toLocaleString('vi-VN')"></p>
+                </div>
+                <p class="transaction-amount"
+                   :class="tx.amount > 0 ? 'amount-received' : 'amount-sent'"
+                   x-text="`${tx.amount > 0 ? '+' : ''} ${tx.amount.toLocaleString('vi-VN')} VNM`">
+                </p>
+            </div>
+        </template>
+    </div>
+</div>

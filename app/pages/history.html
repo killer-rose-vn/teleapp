@@ -1,0 +1,48 @@
+<div x-data="historyPage">
+    <div class="page-header">
+        <button class="back-btn" @click="$dispatch('app:goback')">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <h1>Lịch sử giao dịch</h1>
+    </div>
+
+
+
+    <div class="form-group">
+        <select class="form-control">
+            <option>Tất cả giao dịch</option>
+            <option>Giao dịch nhận</option>
+            <option>Giao dịch gửi</option>
+        </select>
+    </div>
+
+    <div class="transactions">
+        <a href="#" style="text-decoration: none; color: inherit;">
+            <div class="transaction-item">
+                <div class="transaction-details">
+                    <p class="type">Nhận từ UAQW...FGHJ</p>
+                    <p class="date">15/09/2025 10:30</p>
+                </div>
+                <p class="transaction-amount amount-received">+ 500 VNM</p>
+            </div>
+        </a>
+        <a href="#" style="text-decoration: none; color: inherit;">
+            <div class="transaction-item">
+                <div class="transaction-details">
+                    <p class="type">Gửi tới UABC...XYZW</p>
+                    <p class="date">14/09/2025 18:45</p>
+                </div>
+                <p class="transaction-amount amount-sent">- 200 VNM</p>
+            </div>
+        </a>
+        <a href="#" style="text-decoration: none; color: inherit;">
+            <div class="transaction-item">
+                <div class="transaction-details">
+                    <p class="type">Mua VNM</p>
+                    <p class="date">13/09/2025 12:00</p>
+                </div>
+                <p class="transaction-amount amount-received">+ 1000 VNM</p>
+            </div>
+        </a>
+    </div>
+</div>

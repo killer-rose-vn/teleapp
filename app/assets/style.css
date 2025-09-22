@@ -1,0 +1,537 @@
+﻿/* General Styles */
+:root {
+    --bg-color: #121212;
+    --primary-text-color: #ffffff;
+    --secondary-text-color: #b3b3b3;
+    --card-bg-color: #282828;
+    --accent-color: #007bff;
+    --button-bg-color: #333333;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    margin: 0;
+    height: 100vh;
+}
+.app{
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.container {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 80px; /* Space for footer */
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+    color: var(--primary-text-color);
+}
+
+/* Wallet Info */
+.wallet-info {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+}
+
+.currency-badge {
+    background-color: #555;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.wallet-address {
+    font-size: 14px;
+    color: var(--secondary-text-color);
+    word-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+.balance {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 10px 0;
+    margin-bottom: 50px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: none;
+    color: var(--primary-text-color);
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration:none;
+}
+
+.action-btn .icon {
+    background-color: var(--button-bg-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+/* Transactions */
+.transactions {
+    text-align: left;
+}
+
+.transactions h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: var(--secondary-text-color);
+}
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--button-bg-color);
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-details p {
+    margin: 0;
+}
+
+.transaction-details .type {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.transaction-details .date {
+    font-size: 14px;
+    color: var(--secondary-text-color);
+}
+
+.transaction-amount {
+    font-weight: bold;
+}
+
+.amount-received {
+    color: var(--success-color);
+}
+
+.amount-sent {
+    color: var(--danger-color);
+}
+
+/* Footer Toolbar */
+.toolbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--card-bg-color);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid var(--button-bg-color);
+}
+
+.toolbar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.toolbar-item.active {
+    color: var(--primary-text-color);
+}
+
+.toolbar-item i {
+    font-size: 22px;
+    margin-bottom: 4px;
+}
+
+/* Forms & Inputs */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--secondary-text-color);
+}
+
+.input-group {
+    position: relative;
+}
+
+.form-control {
+    width: 100%;
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--button-bg-color);
+    border-radius: 10px;
+    padding: 15px;
+    color: var(--primary-text-color);
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.input-group-text {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-text-color);
+    cursor: pointer;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* QR Code Display */
+.qr-code-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 20px 0;
+}
+
+.qr-code-container img {
+    display: block;
+    width: 180px;
+    height: 180px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.info-box {
+    background-color: var(--card-bg-color);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.info-box p {
+    margin: 0;
+    word-wrap: break-word;
+}
+.info-box .label {
+    color: var(--secondary-text-color);
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.info-box .value {
+    font-size: 18px;
+    font-weight: bold;
+}
+.icon-button {
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+/* Settings */
+.settings-menu {
+    padding:20px;
+}
+.settings-menu .setting-item {
+    background-color: var(--card-bg-color);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.setting-item i {
+    margin-right: 15px;
+    color: var(--secondary-text-color);
+}
+
+
+
+/* CSS cho hiệu ứng chuyển trang */
+.page-content {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* style.css */
+
+/* --- Header & Avatar --- */
+.app-header {
+    text-align:left;
+}
+
+.avatar-button {
+    background: none;
+    border: 2px solid #555;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+    .avatar-button img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+/* --- Offcanvas Panel --- */
+.offcanvas-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.offcanvas-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    max-width: 320px;
+    height: 100%;
+    background-color: var(--card-bg-color);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* --- Trạng thái Mở của Panel --- */
+body.panel-open .offcanvas-backdrop {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.panel-open .offcanvas-panel {
+    transform: translateX(0);
+}
+
+/* --- Các thành phần bên trong Panel --- */
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #444;
+}
+
+    .panel-header h3 {
+        margin: 0;
+    }
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.panel-content {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.profile-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.profile-pic-uploader {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+    .profile-pic-uploader img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 2px solid #666;
+    }
+
+    .profile-pic-uploader span {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0,0,0,0.6);
+        color: white;
+        font-size: 12px;
+        padding: 4px 0;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+    }
+
+.logout-btn {
+    margin-top: 20px;
+    background-color: var(--danger-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* style.css */
+.page-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: solid 1px #313131;
+}
+
+    .page-header h1 {
+        font-size: 20px;
+        margin: 0;
+        width: 100%;
+        padding-right: 20px;
+        text-align: center;
+    }
+
+.back-btn {
+    background: none;
+    border: none;
+    color: var(--primary-text-color);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+
+
+
+
+
+.otp-single-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.otp-single-container input {
+    text-align:center; /* Chiều rộng tổng (6 số + khoảng cách) */
+    font-size: 2.5rem;
+    /* Cực kỳ quan trọng: font monospace để các số rộng bằng nhau */
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    /* Thủ thuật chính: tạo khoảng cách lớn giữa các chữ số */
+    letter-spacing: 25px;
+    /* Căn lề để số đầu tiên nằm đúng vị trí */
+    text-indent: 10px;
+    /* Style kiểu "gạch chân" */
+    border: none;
+    border-bottom: 3px solid #ccc;
+    outline: none; /* Tắt viền focus */
+    /* Màu con trỏ nhấp nháy */
+    caret-color: #007bff;
+    transition: border-bottom-color 0.2s;
+}
+
+    .otp-single-container input:focus {
+        border-bottom-color: #007bff;
+    }

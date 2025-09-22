@@ -1,0 +1,35 @@
+<div x-data="receive">
+    <div class="container centered">
+        <div class="page-header">
+            <button class="back-btn" @click="$dispatch('app:goback')">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <h1>Nhận VNM</h1>
+        </div>
+
+
+
+        <p>Sử dụng địa chỉ dưới đây để nhận VNM</p>
+
+        <div class="qr-code-container">
+            <img :src="vdt_address" alt="QR Code" />
+        </div>
+
+        <div class="info-box">
+            <p class="label">Địa chỉ ví VNM của bạn</p>
+            <p class="value"><span x-text="$store.user.id"></span> <button @click="$store.app.copyAddress($store.user.id)" class="icon-button"><i class="fas fa-copy"></i></button></p>
+        </div>
+
+        <div class="transactions">
+            <h2>Lịch sử nhận gần đây</h2>
+            <div class="transaction-item">
+                <div class="transaction-details">
+                    <p class="type">Nhận từ UAQW...FGHJ</p>
+                    <p class="date">15/09/2025 10:30</p>
+                </div>
+                <p class="transaction-amount amount-received">+ 500 VNM</p>
+            </div>
+        </div>
+    </div>
+
+</div>
