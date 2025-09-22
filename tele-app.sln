@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "app", "app\", "{3C24497C-C0C6-C8CC-B944-111C6C114A6D}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52781"
+		Debug.AspNetCompiler.PhysicalPath = "app\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52781\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52781"
+		Release.AspNetCompiler.PhysicalPath = "app\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52781\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "52781"
+		SlnRelativePath = "app\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "server", "server\server.csproj", "{E5776C1C-C9A4-4B28-9704-47A8486A9B44}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C24497C-C0C6-C8CC-B944-111C6C114A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C24497C-C0C6-C8CC-B944-111C6C114A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C24497C-C0C6-C8CC-B944-111C6C114A6D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C24497C-C0C6-C8CC-B944-111C6C114A6D}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{E5776C1C-C9A4-4B28-9704-47A8486A9B44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5776C1C-C9A4-4B28-9704-47A8486A9B44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5776C1C-C9A4-4B28-9704-47A8486A9B44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5776C1C-C9A4-4B28-9704-47A8486A9B44}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0559CA7-47B4-46CD-871A-6C70CA42F735}
+	EndGlobalSection
+EndGlobal

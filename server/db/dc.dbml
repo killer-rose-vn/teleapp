@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="vdt_vnm" Class="dcDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=mosv1.vnm.bz,14337;Initial Catalog=vdt_vnm;Persist Security Info=True;User ID=vdt_vnm;Encrypt=False" SettingsObjectName="server.Properties.Settings" SettingsPropertyName="vdt_vnmConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbOrder" Member="tbOrders">
+    <Type Name="tbOrder">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="uid" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="createDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="orderType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="data" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ref_id" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Association Name="tbUser_tbOrder" Member="tbUser" ThisKey="uid" OtherKey="id" Type="tbUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbUser" Member="tbUsers">
+    <Type Name="tbUser">
+      <Column Name="id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="createDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="caption" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="tele_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="desciption" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="money" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="status" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="secretnum12" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="secretnum11" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="secretnum10" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="secretnum9" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="secretnum8" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="secretnum7" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="secretnum6" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="secretnum5" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="secretnum4" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="secretnum3" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="secretnum2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="secretnum1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="tbUser_tbOrder" Member="tbOrders" ThisKey="id" OtherKey="uid" Type="tbOrder" />
+      <Association Name="tbUser_tbTransaction" Member="tbTransactions" ThisKey="id" OtherKey="uid" Type="tbTransaction" />
+      <Association Name="tbUser_tbTransaction1" Member="tbTransactions1" ThisKey="id" OtherKey="from_uid" Type="tbTransaction" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbTransaction" Member="tbTransactions">
+    <Type Name="tbTransaction">
+      <Column Name="id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="uid" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="createDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="transType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="from_uid" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="memo" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="tbUser_tbTransaction" Member="tbUser" ThisKey="uid" OtherKey="id" Type="tbUser" IsForeignKey="true" />
+      <Association Name="tbUser_tbTransaction1" Member="tbUser1" ThisKey="from_uid" OtherKey="id" Type="tbUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
